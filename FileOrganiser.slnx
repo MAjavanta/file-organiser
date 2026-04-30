@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/FileOrganiser.slnx/">
+    <Project Path="FileOrganiser.Core/FileOrganiser.Core.csproj" />
+  </Folder>
+</Solution>
