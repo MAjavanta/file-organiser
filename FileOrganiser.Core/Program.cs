@@ -5,11 +5,15 @@ var inputPath = userInput.GetFilePath();
 if (Directory.Exists(inputPath))
 {
     Console.WriteLine($"Printing files from {inputPath}");
+    // var files = Directory.EnumerateFiles(inputPath);
     var directoryInfo = new DirectoryInfo(inputPath);
-    var files = directoryInfo.EnumerateFileSystemInfos();
+    var files = directoryInfo.EnumerateFiles();
     foreach (var file in files)
     {
-        Console.WriteLine(file);
+        Console.WriteLine(file.FullName);
+        Directory.CreateDirectory($"{inputPath}\\{file.Extension[1..]}");
+        File.Move(file.FullName, $"{inputPath}\\{file.Extension[1..]}\\{file.Name}");
+        // Console.WriteLine($"{inputPath}\\{file.Extension[1..]}\\{file.Name}");
     }
 }
 else
