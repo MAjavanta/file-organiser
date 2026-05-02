@@ -1,16 +1,7 @@
-﻿Console.WriteLine("Welcome to File Organiser!");
-string? inputPath;
-Console.WriteLine("Please provide a directory path:");
-while (true)
-{
-    inputPath = Console.ReadLine();
-    if (inputPath is null || inputPath.Length == 0)
-    {
-        Console.WriteLine("Must provide a path");
-        continue;
-    }
-    break;
-}
+﻿using FileOrganiser.Core.UserInput;
+
+var userInput = new ConsoleUserInput();
+var inputPath = userInput.GetFilePath();
 if (Directory.Exists(inputPath))
 {
     Console.WriteLine($"Printing files from {inputPath}");
@@ -25,4 +16,3 @@ else
 {
     Console.WriteLine("The directory provided does not exist.");
 }
-
